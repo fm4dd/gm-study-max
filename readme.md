@@ -66,3 +66,14 @@ The gm-study-max application board demo video: https://www.youtube.com/watch?v=G
 
 Sound example, playing a melody on the onboard buzzer https://youtu.be/5feP9MUxmBE
 <a href="https://youtu.be/5feP9MUxmBE"><img src="examples/sound/sim/gm-study-max-sound.jpg" width="640px"></a>
+
+### Training Lessons
+
+This board is a trainer board suitable for education in digital logic design. Therefore I created a set of sample  lessons on the common subject of binary calculations. [Training Overview](training/)
+
+| Language | Folder                     | Description                                                          |
+|----------|----------------------------|----------------------------------------------------------------------|
+| Verilog  |[Lesson 1](training/adder1) | introduces the implementation of a 1-bit Half Adder.                 |
+| Verilog  |[Lesson 2](training/adder2) | uses the Half-Adder from Lesson-1 to build the 1-bit Full-Adder.     |
+| Verilog  |[Lesson 3](training/adder3) | uses the Full-Adder design to build the 8-bit Ripple-Carry Adder     |
+| Verilog  |[Lesson 4](training/adder4) | converts the Ripple-Carry Adder into an 8-bit Carry-Lookahead Adder  |
