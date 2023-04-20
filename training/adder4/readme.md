@@ -22,12 +22,16 @@ Input A | Input B | Input Cin (Carry in) | Output Cout (Carry Out) | Output S (S
 1	    |0	      |1	                 |1                        |0              |Propagate
 1	    |1	      |1	                 |1                        |1              |Generate/Propagate
 
-We can see two CARRY conditions: it is either generated (as part of the addition result), or propagated (if the CARRY IN bit was set). We introduce two new variables, Carry Generate (G) and Carry Propagate (P):
+We can see two CARRY conditions: it is either generated (as part of the addition result), or propagated (if the CARRY IN bit was set). We introduce two new variables, Carry Generate (G) and Carry Propagate (P), and built a 4-bit carry-lookahead adder module. The 4-bit carry-lookahead adder module has 3 stages:
+1. Pre-calculation of Pi, Gi for each stage
+2. Calculation of carry Ci for each stage (carry generator block)
+3. Combine Ci and Pi of each stage to generate the sum bits S
 
+Logical arrangement:
 
 <img src="img/8-bit_carry_lookahead_adder.svg" width="700px">
 
-The picure above shows the logic design of the 8-bit adder, built from two 4-bit carry-lookahead adder modules. The input example calculates 4 + 12 = 16 (hex: 10)
+The picure above shows the logic design of the 8-bit adder, built from two 4-bit carry-lookahead adder modules. The input example calculates 4 + 12 = 16 (hex: 10).
 
 ### Input/Output Assignment:
 
@@ -207,5 +211,5 @@ Here is the simulation shown in GTKWave:
 ### References
 
 Sarah L. Harris, David Money Harris - Digital Design and Computer Architecture
-Chapter 5, Digital Building Blocks - page 240
+Chapter 5, Digital Building Blocks - page 241
 ISBN: 978-0-12-800056-4

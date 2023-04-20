@@ -38,7 +38,7 @@ Below drawing shows the signal assignment to the hardware components of the GM-S
 
 <img src="img/fulladder-board.svg" width="700px">
 
-we will use the two slide switches 0/1 as input A/B, and output the half-adder results C/S to LED 8/9. The input signals A/B are additionally shown on LED 0/1 for simple verification of the truth table.
+we will use the two slide switches 0/1 as input A/B, and output the half-adder results C/S to LED 8/9. The input signals A/B/Cin are additionally shown on LED 0/1/2 for simple verification of the truth table.
 
 ### Verilog Code
 
@@ -110,7 +110,7 @@ module full_adder(
   or(Cout, C_ha1, C_ha2);
 endmodule
 ```
-Finally we create the top-level module to connect the full-adder to our trainer board hardware:
+Here we create the top-level module to connect the full-adder to our trainer board hardware:
 ```
 // -------------------------------------------------------
 // adder2.v  gm-study-max training         @20230401 fm4dd
