@@ -220,8 +220,31 @@ Below shows the program uploaded to the FPGA board, validating the example diffe
 
 <img src="img/8-bit_ripple_borrow_subtract-run.jpg" width="700px">
 
+### iVerilog Simulation
+
+Here we simulate the program logic, showing example calulation results in test bench:
+```
+fm@nuc7vm2204:~/fpga/hardware/gm-study-max/training/subtract3$ make synth_sim
+iverilog -Winfloop -g2012 -gspecify -Ttyp -o sim/synth_sim.vvp net/subtract3_synth.v sim/subtract3_tb.v /home/fm/cc-toolchain-linux/bin/yosys/share/gatemate/cells_sim.v
+vvp -N sim/synth_sim.vvp -lx2
+LXT2 info: dumpfile sim/subtract3_tb.vcd opened for output.
+
+A-bits (8) - B-bits (8) = D-bits (8) (dec) Bout: b check --> expected result:
+-----------------------------------------------------------------------------
+A-00000000 - B-00000000 = D-00000000 (  0) Bout: 0 check -->   0 -   0 =    0
+A-00000001 - B-00000001 = D-00000000 (  0) Bout: 0 check -->   1 -   1 =    0
+A-00000010 - B-00000001 = D-00000001 (  1) Bout: 0 check -->   2 -   1 =    1
+A-00001000 - B-00000101 = D-00000011 (  3) Bout: 0 check -->   8 -   5 =    3
+A-00100100 - B-00001100 = D-00011000 ( 24) Bout: 0 check -->  36 -  12 =   24
+A-11001000 - B-10000000 = D-01001000 ( 72) Bout: 0 check --> 200 - 128 =   72
+A-11111111 - B-11000111 = D-00111000 ( 56) Bout: 0 check --> 255 - 199 =   56
+A-00010100 - B-00010101 = D-11111111 (255) Bout: 1 check -->  20 -  21 =   -1
+A-00010100 - B-00100000 = D-11110100 (244) Bout: 1 check -->  20 -  32 =  -12
+A-00010100 - B-10111100 = D-01011000 ( 88) Bout: 1 check -->  20 - 188 = -168
+```
+
 ### References
 
 Sarah L. Harris, David Money Harris - Digital Design and Computer Architecture
-Chapter 5, Digital Building Blocks - page 240
+Chapter 5, Section 5.2.2 Digital Building Blocks - page 246
 ISBN: 978-0-12-800056-4
